@@ -3,15 +3,16 @@ class Chronometer {
     // ... your code goes here
     this.currentTime = 0
     this.intervalId = null
+    this.timeR = null
   }
 
   start(printTimeCallback) {
     // ... your code goes here
+    
     console.log(printTimeCallback)
     if(printTimeCallback){
-    setInterval(() => {printTimeCallback()}, 1000);}
-    let id = setInterval(() => {this.currentTime++}, 1000);
-    this.intervalId = id
+    this.timeR =  setInterval(() => {printTimeCallback()}, 1000)}
+    this.intervalId = setInterval(() => {this.currentTime++}, 1000);
 
 
   }
@@ -40,8 +41,10 @@ class Chronometer {
 
   stop() {
     // ... your code goes here
-
-    clearInterval(this.intervalId, 1000, 0)
+    
+    clearInterval(this.intervalId)
+    clearInterval(this.timeR)
+    
 
     
 
@@ -50,6 +53,7 @@ class Chronometer {
   reset() {
     // ... your code goes here
     this.currentTime = 0
+    
   }
 
   split() {
